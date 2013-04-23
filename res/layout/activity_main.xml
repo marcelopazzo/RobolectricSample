@@ -13,5 +13,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+    
+    <fragment 
+	    android:name="com.marcelopazzo.fragmentapplication.ExampleFragment" 
+	    android:id="@+id/example_fragment"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" />
 
 </RelativeLayout>
