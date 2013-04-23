@@ -1,0 +1,12 @@
+bin/
+target/
+obj/
+.DS_Store
+
+# Android files
+/gen
+*.apk
+*.ap_
+*.dex
+*.class
+local.properties
