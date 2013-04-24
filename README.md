@@ -85,31 +85,31 @@ I get the following error:
 This is the test class that I am using:
 
     @RunWith(RobolectricTestRunner.class)
-  public class MainActivityTest {
-    
-    private MainActivity activity;
-    private TextView textView;
-    
-    public static final String GREETINGS = "Hello world!";  
-    
-    @Before
-      public void setUp() {
-      
-      ActionBarSherlock.registerImplementation(ActionBarSherlockRobolectric.class);
-      ActionBarSherlock.unregisterImplementation(ActionBarSherlockNative.class);
-      ActionBarSherlock.unregisterImplementation(ActionBarSherlockCompat.class);
-      
-      activity = new MainActivity();
-          activity.onCreate(null);
-  
-          textView = (TextView) activity.findViewById(R.id.hello);
+    public class MainActivityTest {
+
+        private MainActivity activity;
+        private TextView textView;
+
+        public static final String GREETINGS = "Hello world!";  
+
+        @Before
+        public void setUp() {
+
+            ActionBarSherlock.registerImplementation(ActionBarSherlockRobolectric.class);
+            ActionBarSherlock.unregisterImplementation(ActionBarSherlockNative.class);
+            ActionBarSherlock.unregisterImplementation(ActionBarSherlockCompat.class);
+
+            activity = new MainActivity();
+            activity.onCreate(null);
+
+            textView = (TextView) activity.findViewById(R.id.hello);
+        }
+
+        @Test
+        public void shouldGreet() {
+            assertEquals(GREETINGS, textView.getText());
+        }
     }
-    
-    @Test
-    public void shouldGreet() {
-      assertEquals(GREETINGS, textView.getText());
-    }
-  }
 
 The application is working fine on the device.
 
