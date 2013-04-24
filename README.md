@@ -113,5 +113,6 @@ This is the test class that I am using:
 
 The application is working fine on the device.
 
+![Application](http://img547.imageshack.us/img547/603/20130424104447.png)
 
   [1]:  http://robolectric.blogspot.com.br/2013/03/using-actionbarsherlock-with.html
