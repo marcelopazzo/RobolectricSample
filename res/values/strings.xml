@@ -4,6 +4,6 @@
     <string name="app_name">FragmentApplication</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="hello_again">Hello!</string>
+    <string name="hello_again">Hello from a Fragment!</string>
 
 </resources>
