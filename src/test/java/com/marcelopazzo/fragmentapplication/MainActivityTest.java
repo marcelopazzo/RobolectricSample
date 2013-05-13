@@ -1,44 +1,45 @@
 package com.marcelopazzo.fragmentapplication;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
-import com.actionbarsherlock.ActionBarSherlock;
-import com.actionbarsherlock.internal.ActionBarSherlockCompat;
-import com.actionbarsherlock.internal.ActionBarSherlockNative;
-import com.squareup.test.ActionBarSherlockRobolectric;
-
 import android.widget.TextView;
-
-import static org.junit.Assert.*;
 
 @RunWith(RobolectricTestRunner.class)
 public class MainActivityTest {
 	
 	private MainActivity activity;
-	private TextView textView;
+	private TextView textView, fragmentTextView;
 	
-	public static final String GREETINGS = "Hello world!";  
+	public static final String GREETINGS = "Hello world!";
+	public static final String NEXT_GREETINGS = "Hello from a Fragment!";
 	
 	@Before
     public void setUp() {
-		
-		ActionBarSherlock.registerImplementation(ActionBarSherlockRobolectric.class);
-		ActionBarSherlock.unregisterImplementation(ActionBarSherlockNative.class);
-		ActionBarSherlock.unregisterImplementation(ActionBarSherlockCompat.class);
-		
-		activity = new MainActivity();
-        activity.onCreate(null);
+		activity = Robolectric.buildActivity(MainActivity.class).create().get();
 
         textView = (TextView) activity.findViewById(R.id.hello);
+        fragmentTextView = (TextView) activity.findViewById(R.id.hello_again);
+        
 	}
 	
 	@Test
 	public void shouldGreet() {
 		assertEquals(GREETINGS, textView.getText());
 	}
+	
+	@Test
+	public void shouldGreetAgain() {
+		assertNotNull(fragmentTextView);
+		assertEquals(NEXT_GREETINGS, fragmentTextView.getText());
+	}
+	
 	
 
 }
